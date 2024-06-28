@@ -1,0 +1,59 @@
+server:
+    port : 8779
+    servlet:
+        context-path: /
+file:
+        #上传路径
+     path: e:/file/
+access:
+     base-url:
+            #访问路径
+        file: e:/file/
+#数据库配置
+spring:
+    servlet:
+        multipart:
+            max-request-size: 5GB  # 上传文件总的最大值 默认10MB
+            max-file-size: 1GB #单个文件最大值 默认10MB
+    datasource:
+#        type: com.zaxxer.hikari.HikariDataSource
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#        url: jdbc:mysql://192.168.111.113:13308/gxdlysyjpt?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai&
+#        username: demo
+#        password: demo!@#2021
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#        url: jdbc:mysql://192.168.111.113:13308/gxdlysyjpt?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai&
+#        username: demo
+#        password: demo@2022
+##        dbType: mysql
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#        url: jdbc:mysql://127.0.0.1:3306/flow?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai&
+#        username: root
+#        password: root
+        dbType: mssql
+        url: jdbc:sqlserver://117.141.215.226:2433;databaseName=flow;trustServerCertificate=true
+        username: sa
+        password: ZXasqw12
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+
+
+        #hikari连接池
+        hikari:
+            minimum-idle: 5
+            idle-timeout: 180000
+            maximum-pool-size: 50
+            auto-commit: true
+            pool-name: RyanHikariCP
+            max-lifetime: 180000
+            connection-timeout: 30000
+            connection-test-query: select 1
+    redis:
+        host: 127.0.0.1
+        port: 6379
+        password:
+        database: 13
+
+mybatis:
+    configuration:
+        map-underscore-to-camel-case: true

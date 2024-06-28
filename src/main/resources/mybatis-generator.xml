@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!--数据库配置-->
+    <context id="MysqlTables" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://10.102.40.30:3306/bingboot"
+                        userId="root" password="bing2019!">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 自动生成Model的位置 -->
+        <javaModelGenerator targetPackage="model" targetProject="/mybatis-generator/">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- 自动生成Mapper.xml的位置 -->
+        <sqlMapGenerator targetPackage="xml"  targetProject="/mybatis-generator/">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- 自动生成Mapper.java的位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="dao"  targetProject="/mybatis-generator/">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table tableName="sys_permission" domainObjectName="ProductSaleRecord" >
+            <!--是否使用字段名作为属性名-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--text字段和String进行映射-->
+            <!--<columnOverride column="text_column" jdbcType="VARCHAR" />-->
+        </table>
+
+    </context>
+</generatorConfiguration>
